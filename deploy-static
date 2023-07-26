@@ -11,10 +11,7 @@ fi
 
 ./process-static $fd
 
-servers=({0..3}.grapheneos.org)
-
-rsync -pcv --chmod=F755 --fsync --preallocate certbot-replicate root@${servers[0]}:/usr/local/bin/
-rsync -pcv --chmod=F644 --fsync --preallocate replicate.conf root@${servers[0]}:/etc/systemd/system/certbot-renew.service.d/
+servers=(staging.grapheneos.org)
 
 for server in ${servers[@]}; do
     echo $server
